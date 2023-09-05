@@ -9,4 +9,8 @@
     <bean id="musicBean"
           class="ru.khismatullin.springcourse.ClassicalMusic">
     </bean>
+    <bean id="musicPlayer"
+        class="ru.khismatullin.springcourse.MusicPlayer">
+        <constructor-arg ref="musicBean"/>
+    </bean>
 </beans>
