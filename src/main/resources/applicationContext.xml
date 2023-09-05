@@ -6,13 +6,17 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:musicPlayer.properties"/>
+
     <bean id="musicBean"
           class="ru.khismatullin.springcourse.ClassicalMusic">
     </bean>
+
     <bean id="musicPlayer"
         class="ru.khismatullin.springcourse.MusicPlayer">
         <property name="music" ref="musicBean"/>
-        <property name="name" value="Simple player"/>
-        <property name="volume" value="50"/>
+        <property name="name" value="${musicPlayer.name}"/>
+        <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
 </beans>
