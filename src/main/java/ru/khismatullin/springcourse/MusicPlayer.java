@@ -7,11 +7,12 @@ public class MusicPlayer {
     private List<Music> musicList = new ArrayList<>();
     private String name;
     private int volume;
-    public MusicPlayer(List<Music> musicList) {
+
+    private MusicPlayer(List<Music> musicList) {
         this.musicList = musicList;
     }
 
-    public MusicPlayer() {
+    private MusicPlayer() {
     }
 
     public void playMusic() {
@@ -41,7 +42,13 @@ public class MusicPlayer {
     public void doMyInit() {
         System.out.println("Doing initialization of " + name);
     }
+
     public void doMyDestroy() {
         System.out.println("Doing destruction of " + name);
+    }
+
+    public static MusicPlayer getMusicPlayer(List<Music> musicList) {
+        System.out.println("===> creation from factory method...");
+        return new MusicPlayer(musicList);
     }
 }

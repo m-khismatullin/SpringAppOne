@@ -17,16 +17,17 @@
 
     <bean id="musicPlayer"
           class="ru.khismatullin.springcourse.MusicPlayer"
-          scope="singleton"
+          scope="prototype"
           init-method="doMyInit"
-          destroy-method="doMyDestroy">
-        <property name="musicList">
+          destroy-method="doMyDestroy"
+          factory-method="getMusicPlayer">
+        <constructor-arg name="musicList">
             <list value-type="ru.khismatullin.springcourse.Music">
                 <ref bean="classicalMusicBean"/>
                 <ref bean="jazzMusicBean"/>
                 <ref bean="folkMusicBean"/>
             </list>
-        </property>
+        </constructor-arg>
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
