@@ -15,7 +15,7 @@ public class MusicPlayer {
     }
 
     public void playMusic() {
-        musicList.stream().forEach(e->System.out.println("Playing \"" + e.getSong() + "\"..."));
+        musicList.stream().forEach(e->System.out.println(name + " player playing \"" + e.getSong() + "\"..."));
     }
 
     public void setMusicList(List<Music> musicList) {
@@ -36,5 +36,12 @@ public class MusicPlayer {
 
     public void setVolume(int volume) {
         this.volume = volume;
+    }
+
+    public void doMyInit() {
+        System.out.println("Doing initialization of " + name);
+    }
+    public void doMyDestroy() {
+        System.out.println("Doing destruction of " + name);
     }
 }

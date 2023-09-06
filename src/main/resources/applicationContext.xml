@@ -15,7 +15,11 @@
 
     <bean id="folkMusicBean" class="ru.khismatullin.springcourse.FolkMusic"/>
 
-    <bean id="musicPlayer" class="ru.khismatullin.springcourse.MusicPlayer" scope="prototype">
+    <bean id="musicPlayer"
+          class="ru.khismatullin.springcourse.MusicPlayer"
+          scope="singleton"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy">
         <property name="musicList">
             <list value-type="ru.khismatullin.springcourse.Music">
                 <ref bean="classicalMusicBean"/>
